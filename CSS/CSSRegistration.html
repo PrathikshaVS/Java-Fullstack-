@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        .registration-form {
+            text-align: center;
+            border: 4px solid #791594;
+            background-color: rgb(162, 248, 212);
+            border-radius: 10px;
+            padding: 20px;
+            width: 40%;
+            margin: 40px auto;
+        }
+        .registration-form table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .registration-form th, .registration-form td {
+            border: 2px solid #8615b2;
+            background-color: rgb(176, 207, 245);
+            padding: 10px;
+        }
+        .registration-form input[type="text"], .registration-form input[type="email"], .registration-form input[type="number"], .registration-form input[type="password"], .registration-form select, .registration-form textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+        .registration-form input[type="radio"], .registration-form input[type="checkbox"] {
+            margin: 10px;
+        }
+        .registration-form button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .registration-form button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-form">
+        <h1>Registration Page</h1>
+        <table cellpadding="10" width="100%" border="1">
+            <tr>
+                <td><label for="firstName">First Name:</label></td>
+                <td><input type="text" id="firstName"></td>
+            </tr>
+            <tr>
+                <td><label for="lastName">Last Name:</label></td>
+                <td><input type="text" id="lastName"></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email :</label></td>
+                <td><input type="email" id="email"></td>
+            </tr>
+            <tr>
+                <td><label for="mobileNumber">Mobile Number:</label></td>
+                <td><input type="number" id="mobileNumber"></td>
+            </tr>
+            <tr>
+                <td><label for="dob">DOB:</label></td>
+                <td><input type="date" id="dob"></td>
+            </tr>
+            <tr>
+                <td><label for="username">UserName:</label></td>
+                <td><input type="text" id="username" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+                <td><input type="password" id="password"></td>
+            </tr>
+            <tr>
+                <td><label for="gender">Gender:</label></td>
+                <td>
+                    <input type="radio" id="male" name="gender"> Male
+                    <input type="radio" id="female" name="gender"> Female
+                </td>
+            </tr>
+            <tr>
+                <td><label for="skills">Skills :</label></td>
+                <td>
+                    <input type="checkbox" id="c"> C
+                    <input type="checkbox" id="cpp"> C++
+                    <input type="checkbox" id="java"> Java
+                </td>
+            </tr>
+            <tr>
+                <td><label for="city">City :</label></td>
+                <td>
+                    <select name="city" id="city">
+                        <option value="Salem">Salem</option>
+                        <option value="Tirpur">Tirpur</option>
+                        <option value="Coimbatore">Coimbatore</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="address">Address:</label></td>
+                <td><textarea name="address" id="address" cols="20" rows="10"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="Submit" onclick="alert('User Registration')">Register</button></td>
+            </tr>
+        </table>
+        <br><br>
+        <span>Already Registered?</span>
+        <a href="./Login.html">Login</a>
+    </div>
+</body>
+</html>
