@@ -12,13 +12,12 @@
             text-align: center;
             border: 4px solid #2daf5a;
             border-radius: 30px;
-            top: 250px;
-            left: 500px;
-            bottom: 250px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 30%;
             background: rgb(85, 96, 96);
-            position: absolute;
-            
         }
         .login-button {
             background-color: #4CAF50;
@@ -26,8 +25,8 @@
             border: none;
             border-radius: 30px;
             font-size: 20px;
-           width: 150px;
-           height: 40px;
+            width: 150px;
+            height: 40px;
             cursor: pointer;
         }
     </style>
@@ -39,7 +38,7 @@
             <label for="Email">UserName:</label>
             <input type="text" placeholder="UserName"><br><br>
             <label for="password">Password:</label>
-            <input type="password " ><t><t></t></t><br><br>
+            <input type="password"><br><br>
             <input type="submit" value="Login" class="login-button">
         </form>
     </div>
