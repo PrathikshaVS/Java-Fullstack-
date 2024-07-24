@@ -50,10 +50,10 @@
 </style>
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" class="calculator__display" placeholder="0" value="" readonly>
+    <div class="calculator" id="calculator">
+        <input type="text" class="calculator__display" id="display" placeholder="0" value="" readonly>
         <br>
-        <div class="calculator__keys">
+        <div class="calculator__keys" id="keys">
           <button class="calculator__key">C</button>
           <button class="calculator__key">%</button>
           <button class="calculator__key"><=</button>
@@ -78,18 +78,16 @@
       </div>
 
 <script>
-  const calculator = document.querySelector('.calculator');
-  const display = calculator.querySelector('.calculator__display');
-  const keys = calculator.querySelector('.calculator__keys');
+  const calculator = document.getElementById('calculator');
+  const display = document.getElementById('display');
+  const keys = document.getElementById('keys');
 
-  keys.addEventListener('click', event => {
-    if (!event.target.matches('button')) return;
+  keys.addEventListener('click', function(event) {
+    if (event.target.tagName !== 'BUTTON') return;
 
     const key = event.target;
     const keyValue = key.textContent;
     const displayValue = display.value;
-    const { type } = key.dataset;
-    const { previousKeyType } = calculator.dataset;
 
     if (key.classList.contains('calculator__key')) {
       switch(keyValue) {
@@ -107,14 +105,13 @@
           }
           break;
         default:
-          if (display.value === '0' || previousKeyType === 'operator') {
+          if (display.value === '0') {
             display.value = keyValue;
           } else {
             display.value += keyValue;
           }
           break;
       }
-      calculator.dataset.previousKeyType = key.dataset.type;
     }
   });
 </script>
