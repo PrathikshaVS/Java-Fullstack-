@@ -1,4 +1,4 @@
-<h1>Interpolation</h1>
+<!--<h1>Interpolation</h1>
 <b>
   my Name : {{ name}}
   <br>
@@ -27,5 +27,32 @@
 <button (click)="changeEmail()">Change Email</button>
 <button (click)="changeAge()">Change Age</button>
 <button (click)="changeImg()">Change Image</button>
-<!--<app-mycomponent></app-mycomponent>
+<h1>To Way Data Binding</h1>
+Enter your first Name<input type="text"[(ngModel)]="fname"/>
+<br>
+<b>welcome{{fname}}</b>
+<app-mycomponent></app-mycomponent>
 -->
+
+<h1>Angular Structural Directives</h1>
+<button (click)="changeFlag()">Show or hide Div</button>
+<br>
+<br>
+<div *ngIf="flag"[ngStyle]="myStyle">
+  <ul>
+    <li *ngFor="let vec of vehicles"(click)="setSelectedItem(vec)">{{vec}}
+
+    </li>
+  </ul>
+  <br>
+  <b [ngClass]="myClass">You have selected {{selectedVehicle}}</b>
+  <br>
+  <div [ngSwitch] = "selectedVehicle">
+    <font color="green" *ngSwitchCase="'TwoWheeler'">Bike</font>
+    <font color="green" *ngSwitchCase="'ThreeWheeler'">Auto</font>
+    <font color="green" *ngSwitchCase="'FourWheeler'">Car</font>
+    <font color="green" *ngSwitchDefault>Invalid</font>
+  </div>
+  <br>
+  <button (click)="changeClass()">Change Name</button>
+</div>

@@ -6,11 +6,35 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  name : string;
+  flag : boolean;
+  vehicles: string [];
+  selectedVehicle : string="";
+  myStyle: {};
+  myClass : string;
+
+
+  constructor(){
+    this.flag = true;
+    this.vehicles =["TwoWheeler","ThreeWheeler","FourWheeler"];
+    this.myStyle ={'width':'40%','border' : '2px solid pink'};
+    this.myClass ="Myclass1";
+  }
+
+  changeFlag(){
+    this.flag = ! this.flag;
+  }
+  setSelectedItem(vec:string){
+this.selectedVehicle=vec;
+  }
+  changeClass(){
+    this.myClass="Myclass2";
+  }
+ /* name : string;
   age :number;
   email : string;
   txtColor: string;
   imgPath : string;
+  fname : string="";
 
   constructor(){
     this.name="prathi";
@@ -35,5 +59,5 @@ export class AppComponent {
   changeImg(){
       this.imgPath="https://www.searchenginejournal.com/wp-content/uploads/2019/04/the-seo-guide-to-angular.png";
   }
-  title = 'MyAngularProject1';
+  title = 'MyAngularProject1';*/
 }
