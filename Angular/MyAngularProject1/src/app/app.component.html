@@ -10,7 +10,7 @@
 </b>
 <h1>Property Binding</h1>
 <font [color] ="txtColor">
-<b>
+<b>  
   my Name : <input type="text"[value]="name"/>
   <br>
   my Age : <input type="text"[value]="age"/>
@@ -32,7 +32,7 @@ Enter your first Name<input type="text"[(ngModel)]="fname"/>
 <br>
 <b>welcome{{fname}}</b>
 <app-mycomponent></app-mycomponent>
--->
+
 
 <h1>Angular Structural Directives</h1>
 <button (click)="changeFlag()">Show or hide Div</button>
@@ -56,3 +56,19 @@ Enter your first Name<input type="text"[(ngModel)]="fname"/>
   <br>
   <button (click)="changeClass()">Change Name</button>
 </div>
+<table width ="70%" align="center">
+  <tr>
+    <th><a routerLink="/home"> Home</a></th>
+    <th><a routerLink="/contact"> Contact</a></th>
+    <th><a routerLink="/about"> About Us</a></th>
+  </tr>
+</table>
+<br>
+<div>
+  this is palce to load a new component.
+  <router-outlet></router-outlet>
+</div>-->
+<h1>
+  Addition : {{sum}}
+  <app-mycomponent></app-mycomponent>
+</h1>

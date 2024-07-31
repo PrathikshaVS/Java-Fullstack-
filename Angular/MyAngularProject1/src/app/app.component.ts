@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalculatorService } from './calculator.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  flag : boolean;
+  sum : number;
+  constructor( private calc : CalculatorService){
+      this.sum =calc.getAddition(10,20);
+  }
+  /*flag : boolean;
   vehicles: string [];
   selectedVehicle : string="";
   myStyle: {};
@@ -29,7 +34,7 @@ this.selectedVehicle=vec;
   changeClass(){
     this.myClass="Myclass2";
   }
- /* name : string;
+ name : string;
   age :number;
   email : string;
   txtColor: string;
