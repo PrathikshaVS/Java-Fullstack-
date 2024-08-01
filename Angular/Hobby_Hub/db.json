@@ -1,0 +1,16 @@
+[
+     [
+      {
+        "hobbyID": 1,
+        "hobbyName": "Reading",
+        "hobbyNos": 3,
+        "hobbyList": ["Fiction", "Non-Fiction", "Biography"]
+      },
+      {
+        "hobbyID": 2,
+        "hobbyName": "Sports",
+        "hobbyNos": 2, 
+        "hobbyList": ["Cricket", "Football"]
+      }
+    ]
+]

@@ -7,41 +7,91 @@
     <h1 class="display-4 font-weight-bold text-dark">HOBBY HUB</h1>
     <p class="lead">Manage your hobbies with ease</p>
   </div>
-  <form [formGroup]="HobbyForm" class="form-horizontal">
+  <form name="HobbyForm" #HobbyForm="ngForm" class="form-horizontal">
     <div class="form-group row">
       <label for="id" class="col-sm-2 col-form-label font-weight-bold">ID:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="id" formControlName="id" placeholder="Enter ID">
+        <input type="text" 
+               class="form-control" 
+               name="id" 
+               #id="ngModel" 
+               ngModel 
+               required 
+               pattern="[0-9]+"
+               placeholder="Enter ID">
         <small class="form-text text-muted">Enter a unique ID for your hobby</small>
+        <div *ngIf="id.touched">
+          <div *ngIf="id.errors?.['required']">
+            <b style="color: red;">ID is required</b>
+          </div>
+          <div *ngIf="id.errors?.['pattern']">
+            <b style="color: red;">Invalid ID</b>
+          </div>
+        </div>
       </div>
     </div>
     <div class="form-group row">
       <label for="name" class="col-sm-2 col-form-label font-weight-bold">Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter Name">
+        <input type="text" 
+               class="form-control" 
+               name="name" 
+               #name="ngModel" 
+               ngModel 
+               required 
+               placeholder="Enter Name">
         <small class="form-text text-muted">Enter the name of your hobby</small>
+        <div *ngIf="name.touched">
+          <div *ngIf="name.errors?.['required']">
+            <b style="color: red;">Name is required</b>
+          </div>
+        </div>
       </div>
     </div>
     <div class="form-group row">
       <label for="salary" class="col-sm-2 col-form-label font-weight-bold">Hobby Number:</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" id="salary" formControlName="salary" placeholder="Enter Hobby Number">
+        <input type="number" 
+               class="form-control" 
+               name="salary" 
+               #salary="ngModel" 
+               ngModel 
+               required 
+               placeholder="Enter Hobby Number">
         <small class="form-text text-muted">Enter a unique number for your hobby</small>
+        <div *ngIf="salary.touched">
+          <div *ngIf="salary.errors?.['required']">
+            <b style="color: red;">Hobby Number is required</b>
+          </div>
+        </div>
       </div>
     </div>
     <div class="form-group row">
       <label for="hobbyList" class="col-sm-2 col-form-label font-weight-bold">Hobby List:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="hobbyList" formControlName="hobbyList" placeholder="Enter Hobby List">
+        <input type="text" 
+               class="form-control" 
+               name="hobbyList" 
+               #hobbyList="ngModel" 
+               ngModel 
+               required 
+               placeholder="Enter Hobby List">
         <small class="form-text text-muted">Enter a list of your hobbies</small>
+        <div *ngIf="hobbyList.touched">
+          <div *ngIf="hobbyList.errors?.['required']">
+            <b style="color: red;">Hobby List is required</b>
+          </div>
+        </div>
       </div>
     </div>
     <div class="form-group row">
       <div class="col-sm-10 offset-sm-2">
         <button type="submit" class="btn btn-primary btn-lg" (click)="saveHobby()">Save</button>
-        <button type="submit" class="btn btn-outline-secondary btn-lg" style="margin-left: 10px;" (click)="updateHobby()">Update</button>
-        <button type="submit" class="btn btn-outline-danger btn-lg" style="margin-left: 10px;" (click)="deleteHobby()">Delete</button>
-        <button type="submit" class="btn btn-outline-success btn-lg" style="margin-left: 10px;" (click)="insertHobby()">Insert</button>
+        <button type="submit" class="btn btn-secondary btn-lg" style="margin-left: 10px;" (click)="updateHobby()">Update</button>
+        <button type="submit" class="btn btn-danger btn-lg" style="margin-left: 10px;" (click)="deleteHobby()">Delete</button>
+        <button type="button" class="btn btn-success btn-lg"  style="margin-left: 10px;" (click)="insertHobby({})">Insert</button>
+        <button type="button" class="btn btn-info btn-lg"  style="margin-left: 10px;" (click)="findHobby()">Find</button>
+        <button type="button" class="btn btn-warning btn-lg"  style="margin-left: 10px;" (click)="findallHobby()">Find All</button>
       </div>
     </div>
   </form>

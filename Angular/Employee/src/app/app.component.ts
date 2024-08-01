@@ -19,5 +19,6 @@ insertEmployee(data : any){
   this.employee.empId = data.empId;
   this.employee.empName = data.empName;
   this.employee.empSalary = data.empSalary;
+  alert(data.empId+" "+data.empName+" "+data.empSalary+" ")
 }
 }
