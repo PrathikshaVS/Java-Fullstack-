@@ -1,8 +1,6 @@
 export class Hobby {
-    constructor(
-      public hobbyID: number,
-      public hobbyName: string,
-      public hobbyNos: number,
-      public hobbyList: string[]
-    ) { }
-  }
+  id: number=0;
+  hobbyName: string="";
+  hobbyNos: number=0;
+  hobbyList: string[]=[];
+}

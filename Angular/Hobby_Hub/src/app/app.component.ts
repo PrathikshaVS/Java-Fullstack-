@@ -1,42 +1,85 @@
 import { Component } from '@angular/core';
+import { HobbyService } from './hobby.service';
 import { Hobby } from './model/Hobby';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'] 
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Hobby';
-  
+  hobbyArr: Hobby[];
   hobby: Hobby;
+  result: string;
+  flag: boolean;
+  foundHobby: Hobby | null;
 
-  constructor() {
-    this.hobby = new Hobby(1, 'Reading', 3, ['Fiction', 'Non-Fiction', 'Biography']);
+  constructor(private hobbyService: HobbyService) {
+    this.hobbyArr = [];
+    this.hobby = new Hobby();
+    this.flag = false;
+    this.result = " ";
+    this.foundHobby = null;
   }
 
-  insertHobby(data: any) {
-    this.hobby.hobbyID = data.hobbyID;
-    this.hobby.hobbyName = data.hobbyName;
-    this.hobby.hobbyNos = data.hobbyNos;
-    this.hobby.hobbyList = data.hobbyList;
+  insertHobby(hobby: Hobby) {
+    this.hobbyService.insertHobby(hobby).subscribe(
+      (response: string) => {
+        this.result = response;
+        this.findAllHobbies();
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
-  saveHobby() {
-   
+  updateHobby(hobby: Hobby) {
+    this.hobbyService.updateHobby(hobby).subscribe(
+      (response: string) => {
+        this.result = response;
+        this.findAllHobbies();
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
-  updateHobby() {
-    
+  deleteHobby(id: number) {
+    this.hobbyService.deleteHobby(id).subscribe(
+      (response: string) => {
+        this.result = response;
+        this.findAllHobbies();
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 
-  deleteHobby() {
-    
+  findAllHobbies() {
+    this.hobbyService.findAllHobbies().subscribe(
+      (data: Hobby[]) => {
+        this.hobbyArr = data;
+        this.flag = true;
+        this.foundHobby = null; 
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
-  findHobby(){
 
-  }
-  findallHobby(){
-    
+  findHobby(id: number) {
+    this.hobbyService.findHobby(id).subscribe(
+      (data: Hobby) => {
+        this.foundHobby = data;
+        this.flag = false; 
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
   }
 }

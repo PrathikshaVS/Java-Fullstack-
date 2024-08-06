@@ -1,25 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HobbyComponent } from './hobby/hobby.component';
-import { HobbyListComponent } from './hobby-list/hobby-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HobbyService } from './hobby.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HobbyComponent,
-    HobbyListComponent
+    
   ],
   imports: [
     BrowserModule, 
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    HobbyService
   ],
   bootstrap: [AppComponent]
 })
